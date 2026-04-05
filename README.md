@@ -1,18 +1,9 @@
 # Web Research Agent
 
 An autonomous AI agent that researches any topic by searching the web, reading full pages, and synthesizing a structured report — without you directing each step. Give it a topic, it decides what to search, what to read, and when it has enough information to write the report.
-
----
-
-## What makes this different from previous projects
-
-Every previous project was reactive — user asks, agent responds in one shot. This project is autonomous — you give a goal and the agent works toward it across multiple steps with no further input:
+This project is autonomous — you give a goal and the agent works toward it across multiple steps with no further input:
 
 ```
-Project 5 (reactive, tool calling):
-  User: "What's the weather in Mumbai?"
-  Agent: calls one tool → answers → stops
-
 Project 6 (autonomous, agentic loop):
   User: "Research how large language models work"
   Agent: searches "large language models architecture"
@@ -26,7 +17,6 @@ Project 6 (autonomous, agentic loop):
        → synthesizes structured report
        → stops
 ```
-
 The agent decides how many steps to take, what to search next, which pages to read, and when it has gathered enough to write the report. You don't direct any of it.
 
 ---
@@ -53,7 +43,7 @@ The agent decides how many steps to take, what to search next, which pages to re
 ┌─────────────────────────────────────────────────────────────────┐
 │  3. Agent calls summarize_findings when ready                   │
 │     → second LLM call dedicated to synthesis                    │
-│     → produces structured markdown report                      │
+│     → produces structured markdown report                       │
 └────────────────────────┬────────────────────────────────────────┘
                          ↓
 ┌─────────────────────────────────────────────────────────────────┐
@@ -64,31 +54,8 @@ The agent decides how many steps to take, what to search next, which pages to re
 ---
 
 ## Real run — "how large language models actually work"
-
-```
-── step 1 ──────────────────────
-  searching: large language models architecture
-  searching: how large language models are trained
-  searching: large language models applications and limitations
-
-── step 2 ──────────────────────
-  searching: transformer architecture in large language models
-  reading:   maxiomtech.com/large-language-model-architecture
-  reading:   aicloudit.com/blog/ai/large-language-model-architecture
-  reading:   en.wikipedia.org/wiki/Large_language_model
-  reading:   slideshare.net/10-limitations-of-large-language-models
-
-── step 3 ──────────────────────
-  searching: large language models applications
-  reading:   3 more sources
-
-── step 4 ──────────────────────
-  searching: large language models limitations
-  reading:   3 more sources
-  synthesizing findings...
-```
-
-8 searches, 10 page reads, 4 autonomous steps — zero input from the user after the initial topic.
+<img width="2628" height="902" alt="image" src="https://github.com/user-attachments/assets/027df4b9-22d9-41e6-bab6-058b1e2b9f11" />
+Zero input from the user after the initial topic.
 
 ---
 
